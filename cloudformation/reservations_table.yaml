@@ -37,7 +37,7 @@ Resources:
             console.log(JSON.stringify(event,null,2));
             var params = {
               RequestItems: {
-                "Metrics-Reservations": [
+                "Metrics-Reservations01": [
                   {
                     PutRequest: {
                       Item: {
@@ -79,7 +79,7 @@ Resources:
       Role:
         Fn::GetAtt: [ LambdaRole , "Arn" ]
       # 2024-08-01: updated from nodejs12.x in case it matters
-      Runtime: nodejs18.x
+      Runtime: nodejs16.x
       Timeout: 60
   Unit4MetricsReservations:
     Type: AWS::DynamoDB::Table
@@ -97,7 +97,7 @@ Resources:
       }
       ]
       BillingMode: PAY_PER_REQUEST
-      TableName: "Metrics-Reservations"
+      TableName: "Metrics-Reservations01"
   InitializeEventsTable:
     Type: Custom::InitFunction
     DependsOn: Unit4MetricsReservations

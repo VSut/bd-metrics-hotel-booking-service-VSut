@@ -14,7 +14,7 @@ import java.time.ZonedDateTime;
 /**
  * Represents a reservation.
  */
-@DynamoDBTable(tableName = "Metrics-Reservations")
+@DynamoDBTable(tableName = "Metrics-Reservations01")
 public class Reservation {
 
     private String reservationId;
